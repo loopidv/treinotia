@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronTrack | Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #f97316; --bg: #050505; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg); 
+            color: #ffffff;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(249, 115, 22, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(249, 115, 22, 0.05) 0%, transparent 40%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .logo-font { font-family: 'Space Grotesk', sans-serif; }
+        .glass { 
+            background: rgba(255, 255, 255, 0.03); 
+            backdrop-filter: blur(15px); 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .input-dark {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+        .input-dark:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.1);
+        }
+        .btn-gradient {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.4);
+        }
+        .btn-gradient:active { transform: scale(0.96); }
+        
+        .fade-up {
+            animation: fadeUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="p-6">
+
+    <div class="w-full max-w-sm fade-up">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl logo-font font-bold text-white tracking-tighter italic uppercase leading-none">
+                IRON<span class="text-orange-500">TRACK</span>
+            </h1>
+            <p class="text-[8px] text-gray-500 uppercase tracking-[0.6em] font-black mt-3">Elite Performance System</p>
+        </div>
+
+        <div class="glass rounded-[3rem] p-8 border-white/10 relative overflow-hidden">
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-orange-500/5 blur-3xl rounded-full"></div>
+            
+            <h2 class="text-xs font-black uppercase text-orange-500 mb-8 tracking-widest flex items-center gap-2">
+                <span class="w-2 h-2 bg-orange-500 rounded-full animate-pulse"></span> Acesso à Arena
+            </h2>
+
+            <form method="POST" action="/login" class="space-y-6">
+                <div class="space-y-2">
+                    <label class="text-[9px] font-black text-gray-500 uppercase tracking-[0.2em] ml-2">Identificação</label>
+                    <input type="text" name="username" required placeholder="Seu usuário" 
+                        class="w-full input-dark p-5 rounded-2xl text-sm font-semibold text-white placeholder:text-gray-700">
+                </div>
+
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center px-2">
+                        <label class="text-[9px] font-black text-gray-500 uppercase tracking-[0.2em]">Senha</label>
+                        <a href="#" class="text-[9px] text-orange-500/60 font-bold uppercase hover:text-orange-500 transition-colors">Esqueceu?</a>
+                    </div>
+                    <input type="password" name="password" required placeholder="••••••••" 
+                        class="w-full input-dark p-5 rounded-2xl text-sm font-semibold text-white placeholder:text-gray-700">
+                </div>
+
+                <button type="submit" class="btn-gradient w-full py-5 rounded-[1.5rem] text-black font-black uppercase text-xs tracking-[0.2em] mt-4">
+                    Entrar Agora
+                </button>
+            </form>
+        </div>
+
+        <div class="mt-10 text-center">
+            <p class="text-gray-500 text-xs font-medium">Novo por aqui?</p>
+            <a href="/register" class="inline-block mt-2 text-white font-black uppercase text-[10px] tracking-widest border-b-2 border-orange-500 pb-1">
+                Criar conta de atleta
+            </a>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 pointer-events-none z-[-1]">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] opacity-20" 
+             style="background: radial-gradient(circle, rgba(249,115,22,0.03) 0%, transparent 70%);"></div>
+    </div>
+
+</body>
+</html>
